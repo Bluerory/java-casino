@@ -2,12 +2,29 @@ package becode.aurore.java.casino;
 import java.util.Scanner;
 
 /**
- * Main class containing the start menu waiting for user input to play the game.
+ * Casino class containing the start menu waiting for user input to play the game.
  */
-public class Main {
+public class Casino {
+
+	private static final String message = "Choose your option: \n"
+			+ "[1] - Show money \n"
+			+ "[2] - Add 1€ \n"
+			+ "[3] - Add 5€ \n"
+			+ "[4] - Exit";
 
 	public static void main(String[] args) {
+
+		Player player = new Player();
+		player.showMoney();
+		player.addMoney(10);
+		player.showMoney();
+
 		startMenu();
+	}
+
+	public static void showMenu(){
+		System.out.println(message);
+		System.out.println("show menu!");
 	}
 
 	public static void startMenu() {
@@ -18,30 +35,29 @@ public class Main {
 
 		System.out.println("[step] scanner created");
 
-		String message = "Choose your option: \n"
-				+ "[1] - Hello \n"
-				+ "[2] - Coucou \n"
-				+ "[3] - Exit";
-
 		System.out.println("[step] just before while loop");
 
-		while(true) {
+		showMenu();
+		while(input.hasNext()) {
 
-			System.out.println("[step] In while loop, before option message log\n");
-			System.out.println(message);
+			System.out.println("[step] In while loop\n");
 
 			switch (input.nextLine()){
 				case "1":
 					sayHello();
-					continue;
+					break;
 				case "2":
 					sayCoucou();
-					continue;
-
+					break;
 				case "3":
 					exitMenu();
 					break;
+				default:
+					System.out.println("Command unavailable");
+					break;
+
 			}
+			showMenu();
 
 		}
 	}
