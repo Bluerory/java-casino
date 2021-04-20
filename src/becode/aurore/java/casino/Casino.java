@@ -10,8 +10,8 @@ public class Casino {
 			+ "[1] - Show money \n"
 			+ "[2] - Add 1€ \n"
 			+ "[3] - Add 5€ \n"
-			+ "[4] - Play \n"
-			+ "[5] - Exit";
+			+ "[4] - Play\n"
+			+ "[5] - Exit\n";
 
 	public static void main(String[] args) {
 		startMenu();
@@ -22,7 +22,6 @@ public class Casino {
 	}
 
 	public static void startMenu() {
-
 
 		Scanner input = new Scanner(System.in);
 		Player player = new Player();
@@ -48,7 +47,7 @@ public class Casino {
 					exitMenu();
 					break;
 				default:
-					System.out.println("Command unavailable");
+					System.out.println("Command unavailable\n");
 					break;
 
 			}
@@ -58,7 +57,7 @@ public class Casino {
 	}
 
 	public static void exitMenu() {
-		System.out.println("Goodbye!");
+		System.out.println("Goodbye!\n");
 		System.exit(0);
 	}
 }
