@@ -30,22 +30,22 @@ public class Casino {
 		showMenu();
 		while(input.hasNext()) {
 
-			switch (input.nextLine()){
-				case "1":
+			switch (input.nextInt()){
+				case 1:
 					player.showMoney();
 					break;
-				case "2":
+				case 2:
 					player.addMoney(1);
 					player.showMoney();
 					break;
-				case "3":
+				case 3:
 					player.addMoney(5);
 					player.showMoney();
 					break;
-				case "4":
+				case 4:
 					player.play(machine);
                 	break;
-				case "5":
+				case 5:
 					exitMenu();
 					break;
 				default:
