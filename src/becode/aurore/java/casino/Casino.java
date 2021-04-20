@@ -25,6 +25,7 @@ public class Casino {
 
 		Scanner input = new Scanner(System.in);
 		Player player = new Player();
+		Machine machine = new Machine();
 
 		showMenu();
 		while(input.hasNext()) {
@@ -41,8 +42,9 @@ public class Casino {
 					player.addMoney(5);
 					player.showMoney();
 					break;
-//				case "4":
-////				player.play();
+				case "4":
+					player.play(machine);
+                	break;
 				case "5":
 					exitMenu();
 					break;
