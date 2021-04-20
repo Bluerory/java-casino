@@ -12,7 +12,7 @@ public class Player {
 	}
 
 	public void showMoney(){
-		System.out.println("You have " + this.money + "€ on your account");
+		System.out.println("You have " + this.money + "€ on your account\n");
 	}
 
 	public void addMoney(float addedMoney){
