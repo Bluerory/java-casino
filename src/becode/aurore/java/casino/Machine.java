@@ -5,12 +5,9 @@ import java.util.Random;
 public class Machine {
 	private int[] numbers = new int[2];
 
-	public int getRandomInt(){
-		Random rand = new Random(); //instance of random class
+	private int getRandomInt() {
+		Random rand = new Random();
 		int maxValue = 10;
-		
-		//return random values from 0-9
-
 		return rand.nextInt(maxValue);
 	}
 
