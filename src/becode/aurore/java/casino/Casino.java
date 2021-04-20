@@ -10,15 +10,10 @@ public class Casino {
 			+ "[1] - Show money \n"
 			+ "[2] - Add 1€ \n"
 			+ "[3] - Add 5€ \n"
-			+ "[4] - Exit";
+			+ "[4] - Play \n"
+			+ "[5] - Exit";
 
 	public static void main(String[] args) {
-
-		Player player = new Player();
-		player.showMoney();
-		player.addMoney(10);
-		player.showMoney();
-
 		startMenu();
 	}
 
@@ -32,6 +27,7 @@ public class Casino {
 		System.out.println("[step] Before scanner creation");
 
 		Scanner input = new Scanner(System.in);
+		Player player = new Player();
 
 		System.out.println("[step] scanner created");
 
@@ -44,12 +40,19 @@ public class Casino {
 
 			switch (input.nextLine()){
 				case "1":
-					sayHello();
+					player.showMoney();
 					break;
 				case "2":
-					sayCoucou();
+					player.addMoney(1);
+					player.showMoney();
 					break;
 				case "3":
+					player.addMoney(5);
+					player.showMoney();
+					break;
+//				case "4":
+////				player.play();
+				case "5":
 					exitMenu();
 					break;
 				default:
