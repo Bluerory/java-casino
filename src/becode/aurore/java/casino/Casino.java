@@ -57,14 +57,6 @@ public class Casino {
 		}
 	}
 
-	public static void sayHello() {
-		System.out.println("Hello, user!");
-	}
-
-	public static void sayCoucou() {
-		System.out.println("Coucou, user!");
-	}
-
 	public static void exitMenu() {
 		System.out.println("Goodbye!");
 		System.exit(0);
