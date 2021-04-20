@@ -35,9 +35,14 @@ public class Player {
 
 		int bet = getBet();
 
-		this.money -= bet;
-		System.out.println("You now have " + this.money + " € left\n");
-		machine.launchGame(this, bet);
+		if(this.money>=bet){
+			this.money -= bet;
+			System.out.println("You now have " + this.money + " € left\n");
+			machine.launchGame(this, bet);
+			this.showMoney();
+		} else {
+			System.out.println("You don't have enough money, add some or leave!\n");
+		}
 
 	}
 

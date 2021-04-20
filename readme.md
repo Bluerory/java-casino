@@ -14,8 +14,8 @@ Java
 - Java basics such as:
     - the use of OOP in a real project,
     - the visibility and types of variables and methods,
-    - working with a single file per class
-    - the use of the Scanner class
+    - working with a single file per class,
+    - the use of the Scanner class.
     
 ## Steps
 1) I created the menu, with test methods to try and call them using a scanner.
