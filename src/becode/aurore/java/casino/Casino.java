@@ -19,24 +19,16 @@ public class Casino {
 
 	public static void showMenu(){
 		System.out.println(message);
-		System.out.println("show menu!");
 	}
 
 	public static void startMenu() {
 
-		System.out.println("[step] Before scanner creation");
 
 		Scanner input = new Scanner(System.in);
 		Player player = new Player();
 
-		System.out.println("[step] scanner created");
-
-		System.out.println("[step] just before while loop");
-
 		showMenu();
 		while(input.hasNext()) {
-
-			System.out.println("[step] In while loop\n");
 
 			switch (input.nextLine()){
 				case "1":
