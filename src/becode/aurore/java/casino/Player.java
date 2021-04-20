@@ -23,6 +23,13 @@ public class Player {
 		this.money -= amount;
 //		jouer(amount)
 
+	public void play(Machine machine){
+
+		int bet = getBet();
+
+		this.money -= bet;
+		System.out.println("You now have " + this.money + " € left\n");
+		machine.launchGame(this, bet);
 
 	}
 
