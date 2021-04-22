@@ -1,4 +1,6 @@
 package becode.aurore.java.casino;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -7,30 +9,69 @@ import java.util.Scanner;
 public class Casino {
 
 	private static final String message = "Choose your option: \n"
+			+ "[0] - Change player \n"
 			+ "[1] - Show money \n"
 			+ "[2] - Add 1€ \n"
 			+ "[3] - Add 5€ \n"
 			+ "[4] - Play\n"
 			+ "[5] - Exit\n";
 
+	static ArrayList<Object> playerObjects = new ArrayList<>();
+
 	public static void main(String[] args) {
-		startMenu();
+		enterCasino();
 	}
 
+	public static void addPlayer(Object player) {
+		playerObjects.add(player);
+		System.out.println("playerObjects size: " + playerObjects.size());
+
+	}
+
+	public static void enterCasino(){
+		Scanner userInput = new Scanner(System.in);
+
+		System.out.println("Hello, what's your name?");
+		String userName = userInput.nextLine();
+
+		System.out.println("How much money did you bring to play?");
+		Integer userMoney = userInput.nextInt();
+
+		//Machine created even if condition for player creation was not fulfilled.
+		Machine machine = new Machine();
+
+		if (userName != null && !userName.isEmpty() && userMoney !=
+		null){
+			Player player = new Player(userName, userMoney);
+			addPlayer(player);
+
+			startMenu(player, machine);
+		} else {
+			System.out.println("Please answer the questions to enter the casino");
+		}
+
+
+	}
 	public static void showMenu(){
 		System.out.println(message);
 	}
 
-	public static void startMenu() {
+	public static void startMenu(Player player, Machine machine) {
 
 		Scanner input = new Scanner(System.in);
-		Player player = new Player();
-		Machine machine = new Machine();
+
+		String userName = player.showName();
+
+		System.out.println("welcome, " + userName);
 
 		showMenu();
 		while(input.hasNext()) {
 
 			switch (input.nextInt()){
+				case 0:
+					enterCasino();
+					break;
+
 				case 1:
 					player.showMoney();
 					break;
