@@ -6,9 +6,15 @@ package becode.aurore.java.casino;
 public class Player {
 
 	private int money;
+	private String name;
 
-	public Player() {
-		this.money = 5;
+	public Player(String name, int money) {
+		this.name = name;
+		this.money = money;
+	}
+
+	public String showName(){
+		return this.name;
 	}
 
 	public void showMoney(){
