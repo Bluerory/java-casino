@@ -1,9 +1,16 @@
 package becode.aurore.java.casino;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Machine {
 	private int[] numbers = new int[2];
+
+	public int getBet(){
+		Scanner betInput = new Scanner(System.in);
+		System.out.println("insert money:");
+		return betInput.nextInt();
+	}
 
 	private int getRandomInt() {
 		Random rand = new Random();
@@ -62,7 +69,7 @@ public class Machine {
 			}
 		}
 
-		player.getPrize(payout);
+		player.addMoney(payout);
 
 	}
 
