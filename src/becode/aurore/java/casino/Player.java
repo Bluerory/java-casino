@@ -17,9 +17,7 @@ public class Player {
 		System.out.println("You have " + this.money + "€ on your account\n");
 	}
 
-	public void addMoney(float addedMoney){
-		this.money += addedMoney;
-	}
+	public int getMoney(){return this.money;}
 
 	public void getPrize(int payout){
 		this.money += payout;
