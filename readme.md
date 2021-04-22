@@ -20,4 +20,8 @@ Java
 ## Steps
 1) I created the menu, with test methods to try and call them using a scanner.
 2) I made 2 new classes: Player and Machine, and added basic methods I could call from the menu.
-3) More to come!
+3) Made the game functional: user can bet, play and get money back if they're lucky (numbers displayed are 
+   randomized and user must get 2 identical digits to win so it's pure luck).
+4) Created a greeting message taking user's name and the amount of money they want to add to their account.
+5) Created and ArrayList containing ell created users since program launch.
+6) More to come!
