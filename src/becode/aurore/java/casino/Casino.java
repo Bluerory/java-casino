@@ -18,19 +18,79 @@ public class Casino {
 
     ArrayList<Object> playerObjects = new ArrayList<>();
 
+    private String currentPlayer;
+    private boolean goBack = false;
+
+    Scanner input = new Scanner(System.in);
+
+    public void sayWelcome(){
+        System.out.println("Welcome to the casino!\n"
+                + "Please sign in or create an account.\n");
+        printMenu();
+
+    }
+
+    public void printMenu(){
+        do {
+            System.out.println("================== MENU ==================");
+            System.out.println("Press the key corresponding to your choice\n");
+
+            if (goBack) {
+                System.out.println("0 - Back");
+                if(input.nextInt() == 0){
+                    System.out.println("you pressed 'back'");
+                }
+            }
+            System.out.println("1 - New player");
+            System.out.println("2 - Choose player");
+            switch(input.nextInt()){
+                case 1:
+                    System.out.println("you chose to create a new player");
+                    break;
+                case 2:
+                    System.out.println("You chose to see player list");
+                    break;
+            }
+
+            if (currentPlayer != null && !currentPlayer.isEmpty()) {
+                System.out.println("3 - Show player info");
+                System.out.println("4 - Add money");
+                System.out.println("5 - Play");
+
+                switch (input.nextInt()){
+                    case 3:
+                        System.out.println("call player info");
+                        break;
+                    case 4:
+                        System.out.println("call add money");
+                        break;
+                    case 5:
+                        System.out.println("call play");
+                        break;
+                }
+            }
+
+            System.out.println("e - Exit");
+            if(input.nextLine() == "e"){
+                System.out.println("call exit");
+            }
+        } while (input.hasNext());
+    }
+
     public void addPlayer(Object player) {
         playerObjects.add(player);
         System.out.println("playerObjects size: " + playerObjects.size());
+//        System.out.printf();
 
     }
     public void enterCasino(){
-        Scanner userInput = new Scanner(System.in);
+//        Scanner userInput = new Scanner(System.in);
 
         System.out.println("Hello, what's your name?");
-        String userName = userInput.nextLine();
+        String userName = input.nextLine();
 
         System.out.println("How much money did you bring to play?");
-        Integer userMoney = userInput.nextInt();
+        Integer userMoney = input.nextInt();
 
         //Machine created even if condition for player creation was not fulfilled.
         Machine machine = new Machine();
@@ -44,17 +104,13 @@ public class Casino {
         } else {
             System.out.println("Please answer the questions to enter the casino");
         }
-
-
     }
     public void showMenu(){
         System.out.println(message);
     }
 
     public void startMenu(Player player, Machine machine) {
-
-        Scanner input = new Scanner(System.in);
-
+        
         String userName = player.showName();
 
         System.out.println("welcome, " + userName);
