@@ -31,8 +31,8 @@ public class Casino {
 
     }
 
-    public void printMenu(){
-        do {
+    public void showMenu(){
+
             System.out.println("================== MENU ==================");
             System.out.println("Press the key corresponding to your choice\n");
 
@@ -84,8 +84,7 @@ public class Casino {
 //        System.out.printf();
 
     }
-    public void enterCasino(){
-//        Scanner userInput = new Scanner(System.in);
+    public void createPlayer(){
 
         System.out.println("Hello, what's your name?");
         String userName = input.nextLine();
