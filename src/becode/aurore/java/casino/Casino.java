@@ -42,7 +42,7 @@ public class Casino {
             System.out.println("1 - New player");
             System.out.println("2 - Choose player");
 
-            if (currentPlayer != null && !currentPlayer.isEmpty()) {
+            if (currentPlayer != null) {
                 System.out.println("3 - Show player info");
                 System.out.println("4 - Add money");
                 System.out.println("5 - Play");
