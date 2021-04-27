@@ -13,7 +13,6 @@ public class Casino {
 
     private Player currentPlayer;
     private Machine currentMachine;
-    private boolean goBack = false;
 
     private Scanner input = new Scanner(System.in);
 
@@ -28,9 +27,6 @@ public class Casino {
             System.out.println("================== MENU ==================");
             System.out.println("Press the key corresponding to your choice\n");
 
-            if (goBack) {
-                System.out.println("0 - Back");
-            }
             System.out.println("1 - New player");
             System.out.println("2 - Choose player");
 
@@ -86,11 +82,6 @@ public class Casino {
         while(input.hasNext()) {
 
             switch (input.nextLine()){
-                case "0":
-                    if(goBack){
-                        System.out.println("player went back");
-                    }
-                    break;
 
                 case "1":
                     createPlayer();
