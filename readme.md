@@ -24,4 +24,6 @@ Java
    randomized and user must get 2 identical digits to win so it's pure luck).
 4) Created a greeting message taking user's name and the amount of money they want to add to their account.
 5) Created and ArrayList containing ell created users since program launch.
-6) More to come!
+6) New menu: 
+   - possibility to switch user accounts or create a new player,
+   - some options will not show up until the player created their account.
