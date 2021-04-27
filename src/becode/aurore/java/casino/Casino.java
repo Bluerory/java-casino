@@ -91,28 +91,45 @@ public class Casino {
         showMenu();
         while(input.hasNext()) {
 
-            switch (input.nextInt()){
-                case 0:
-                    enterCasino();
+            switch (input.nextLine()){
+                case "0":
+                    if(goBack){
+                        System.out.println("player went back");
+                    }
                     break;
 
-                case 1:
-                    player.showMoney();
+                case "1":
+                    createPlayer();
                     break;
-                case 2:
-                    player.addMoney(1);
-                    player.showMoney();
+
+                case "2":
+                    System.out.println("show player list");
+                    showPlayers();
                     break;
-                case 3:
-                    player.addMoney(5);
-                    player.showMoney();
+
+                case "3":
+                    if(currentPlayer != null){
+                        System.out.println("player info showed");
+                        currentPlayer.showName();
+                    }
                     break;
-                case 4:
-                    player.play(machine);
+
+                case "4":
+                    if(currentPlayer != null){
+                        System.out.println("player added money");
+                    }
                     break;
-                case 5:
+
+                case "5":
+                    if(currentPlayer != null){
+//                        currentPlayer.play(machine);
+                    }
+                    break;
+
+                case "e":
                     exitMenu();
                     break;
+
                 default:
                     System.out.println("Command unavailable\n");
                     break;
