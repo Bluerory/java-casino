@@ -69,10 +69,16 @@ public class Casino {
     }
 
     private void showPlayers(){
-        System.out.println("=============== PLAYER LIST ==============\n" +
-                "Who are you?");
-        for(int i = 0; i < players.size(); i++){
-            System.out.println((i+1) + " - " + players.get(i).showName());
+
+        if(players.size()>0){
+            System.out.println("=============== PLAYER LIST ==============\n" +
+                    "Who are you?");
+            for(int i = 0; i < players.size(); i++){
+                System.out.println((i+1) + " - " + players.get(i).showName());
+            }
+            currentPlayer = players.get(input.nextInt()-1);
+        } else {
+            System.out.println("No player registered, please create your profile\n");
         }
     }
 
