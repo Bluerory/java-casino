@@ -8,89 +8,123 @@ import java.util.Scanner;
  */
 public class Casino {
 
-    private final String message = "Choose your option: \n"
-            + "[0] - Change player \n"
-            + "[1] - Show money \n"
-            + "[2] - Add 1€ \n"
-            + "[3] - Add 5€ \n"
-            + "[4] - Play\n"
-            + "[5] - Exit\n";
+    private ArrayList<Player> players = new ArrayList<>();
 
-    ArrayList<Object> playerObjects = new ArrayList<>();
+    private Player currentPlayer;
+    private Machine currentMachine;
 
-    public void addPlayer(Object player) {
-        playerObjects.add(player);
-        System.out.println("playerObjects size: " + playerObjects.size());
+    private Scanner input = new Scanner(System.in);
+
+    public void sayWelcome() {
+        System.out.println("Welcome to the casino!\n"
+                + "Please, press the key corresponding to your choice\n");
+        startMenu();
+    }
+
+    public void showMenu() {
+
+        System.out.println("================== MENU ==================");
+
+        System.out.println("1 - New player");
+        System.out.println("2 - Choose player");
+
+        if (currentPlayer != null) {
+            System.out.println("3 - Show player info");
+            System.out.println("4 - Add money");
+            System.out.println("5 - Play");
+        }
+
+        System.out.println("e - Exit\n");
+    }
+
+    public void addPlayer(Player player) {
+        players.add(player);
+        System.out.println("playerObjects size: " + players.size());
+        System.out.println("welcome, " + player.showName());
 
     }
-    public void enterCasino(){
-        Scanner userInput = new Scanner(System.in);
 
-        System.out.println("Hello, what's your name?");
-        String userName = userInput.nextLine();
+    public void createPlayer() {
+
+        System.out.println("What's your name?");
+        String userName = input.nextLine();
 
         System.out.println("How much money did you bring to play?");
-        Integer userMoney = userInput.nextInt();
+        Integer userMoney = input.nextInt();
 
         //Machine created even if condition for player creation was not fulfilled.
         Machine machine = new Machine();
 
         if (userName != null && !userName.isEmpty() && userMoney !=
-                null){
+                null) {
             Player player = new Player(userName, userMoney);
             addPlayer(player);
 
-            startMenu(player, machine);
+            currentPlayer = player;
+            currentMachine = machine;
         } else {
             System.out.println("Please answer the questions to enter the casino");
         }
-
-
-    }
-    public void showMenu(){
-        System.out.println(message);
     }
 
-    public void startMenu(Player player, Machine machine) {
+    private void showPlayers() {
 
-        Scanner input = new Scanner(System.in);
+        if (players.size() > 0) {
+            System.out.println("=============== PLAYER LIST ==============\n" +
+                    "Who are you?");
+            for (int i = 0; i < players.size(); i++) {
+                System.out.println((i + 1) + " - " + players.get(i).showName());
+            }
+            currentPlayer = players.get(input.nextInt() - 1);
+        } else {
+            System.out.println("No player registered, please create your profile\n");
+        }
+    }
 
-        String userName = player.showName();
-
-        System.out.println("welcome, " + userName);
+    public void startMenu() {
 
         showMenu();
-        while(input.hasNext()) {
 
-            switch (input.nextInt()){
-                case 0:
-                    enterCasino();
+        while (input.hasNext()) {
+
+            switch (input.nextLine()) {
+
+                case "1":
+                    createPlayer();
                     break;
 
-                case 1:
-                    player.showMoney();
+                case "2":
+                    showPlayers();
                     break;
-                case 2:
-                    player.addMoney(1);
-                    player.showMoney();
+
+                case "3":
+                    if (currentPlayer != null) {
+                        currentPlayer.showInfo();
+                    }
                     break;
-                case 3:
-                    player.addMoney(5);
-                    player.showMoney();
+
+                case "4":
+                    if (currentPlayer != null) {
+                        currentPlayer.addMoneyToAccount();
+                    }
                     break;
-                case 4:
-                    player.play(machine);
+
+                case "5":
+                    if (currentPlayer != null) {
+                        currentPlayer.play(currentMachine);
+                    }
                     break;
-                case 5:
+
+                case "e":
                     exitMenu();
                     break;
+
                 default:
                     System.out.println("Command unavailable\n");
                     break;
 
             }
             showMenu();
-
         }
     }
 
