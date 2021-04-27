@@ -73,7 +73,7 @@ public class Casino {
             Player player = new Player(userName, userMoney);
             addPlayer(player);
 
-            startMenu(player, machine);
+            currentPlayer = player;
         } else {
             System.out.println("Please answer the questions to enter the casino");
         }
