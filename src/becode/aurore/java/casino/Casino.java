@@ -8,13 +8,6 @@ import java.util.Scanner;
  */
 public class Casino {
 
-    private final String message = "Choose your option: \n"
-            + "[0] - Change player \n"
-            + "[1] - Show money \n"
-            + "[2] - Add 1€ \n"
-            + "[3] - Add 5€ \n"
-            + "[4] - Play\n"
-            + "[5] - Exit\n";
 
     private ArrayList<Player> players = new ArrayList<>();
 
