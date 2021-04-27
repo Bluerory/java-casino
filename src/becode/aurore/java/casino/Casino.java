@@ -100,7 +100,7 @@ public class Casino {
 
                 case "4":
                     if(currentPlayer != null){
-                        System.out.println("player added money");
+                        currentPlayer.addMoneyToAccount();
                     }
                     break;
 
