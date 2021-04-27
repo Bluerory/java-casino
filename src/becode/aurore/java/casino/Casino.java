@@ -16,7 +16,7 @@ public class Casino {
             + "[4] - Play\n"
             + "[5] - Exit\n";
 
-    ArrayList<Object> playerObjects = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
 
     private String currentPlayer;
     private boolean goBack = false;
