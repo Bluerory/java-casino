@@ -94,8 +94,7 @@ public class Casino {
 
                 case "3":
                     if(currentPlayer != null){
-                        System.out.println("player info showed");
-                        currentPlayer.showName();
+                        currentPlayer.showInfo();
                     }
                     break;
 
