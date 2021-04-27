@@ -38,44 +38,17 @@ public class Casino {
 
             if (goBack) {
                 System.out.println("0 - Back");
-                if(input.nextInt() == 0){
-                    System.out.println("you pressed 'back'");
-                }
             }
             System.out.println("1 - New player");
             System.out.println("2 - Choose player");
-            switch(input.nextInt()){
-                case 1:
-                    System.out.println("you chose to create a new player");
-                    break;
-                case 2:
-                    System.out.println("You chose to see player list");
-                    break;
-            }
 
             if (currentPlayer != null && !currentPlayer.isEmpty()) {
                 System.out.println("3 - Show player info");
                 System.out.println("4 - Add money");
                 System.out.println("5 - Play");
-
-                switch (input.nextInt()){
-                    case 3:
-                        System.out.println("call player info");
-                        break;
-                    case 4:
-                        System.out.println("call add money");
-                        break;
-                    case 5:
-                        System.out.println("call play");
-                        break;
-                }
             }
 
             System.out.println("e - Exit");
-            if(input.nextLine() == "e"){
-                System.out.println("call exit");
-            }
-        } while (input.hasNext());
     }
 
     public void addPlayer(Object player) {
