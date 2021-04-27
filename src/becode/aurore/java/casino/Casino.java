@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class Casino {
 
-
     private ArrayList<Player> players = new ArrayList<>();
 
     private Player currentPlayer;
@@ -16,27 +15,26 @@ public class Casino {
 
     private Scanner input = new Scanner(System.in);
 
-    public void sayWelcome(){
+    public void sayWelcome() {
         System.out.println("Welcome to the casino!\n"
                 + "Please, press the key corresponding to your choice\n");
         startMenu();
     }
 
-    public void showMenu(){
+    public void showMenu() {
 
-            System.out.println("================== MENU ==================");
-            System.out.println("Press the key corresponding to your choice\n");
+        System.out.println("================== MENU ==================");
 
-            System.out.println("1 - New player");
-            System.out.println("2 - Choose player");
+        System.out.println("1 - New player");
+        System.out.println("2 - Choose player");
 
-            if (currentPlayer != null) {
-                System.out.println("3 - Show player info");
-                System.out.println("4 - Add money");
-                System.out.println("5 - Play");
-            }
+        if (currentPlayer != null) {
+            System.out.println("3 - Show player info");
+            System.out.println("4 - Add money");
+            System.out.println("5 - Play");
+        }
 
-            System.out.println("e - Exit");
+        System.out.println("e - Exit\n");
     }
 
     public void addPlayer(Player player) {
@@ -45,7 +43,8 @@ public class Casino {
         System.out.println("welcome, " + player.showName());
 
     }
-    public void createPlayer(){
+
+    public void createPlayer() {
 
         System.out.println("What's your name?");
         String userName = input.nextLine();
@@ -57,7 +56,7 @@ public class Casino {
         Machine machine = new Machine();
 
         if (userName != null && !userName.isEmpty() && userMoney !=
-                null){
+                null) {
             Player player = new Player(userName, userMoney);
             addPlayer(player);
 
@@ -68,15 +67,15 @@ public class Casino {
         }
     }
 
-    private void showPlayers(){
+    private void showPlayers() {
 
-        if(players.size()>0){
+        if (players.size() > 0) {
             System.out.println("=============== PLAYER LIST ==============\n" +
                     "Who are you?");
-            for(int i = 0; i < players.size(); i++){
-                System.out.println((i+1) + " - " + players.get(i).showName());
+            for (int i = 0; i < players.size(); i++) {
+                System.out.println((i + 1) + " - " + players.get(i).showName());
             }
-            currentPlayer = players.get(input.nextInt()-1);
+            currentPlayer = players.get(input.nextInt() - 1);
         } else {
             System.out.println("No player registered, please create your profile\n");
         }
@@ -85,33 +84,33 @@ public class Casino {
     public void startMenu() {
 
         showMenu();
-        while(input.hasNext()) {
 
-            switch (input.nextLine()){
+        while (input.hasNext()) {
+
+            switch (input.nextLine()) {
 
                 case "1":
                     createPlayer();
                     break;
 
                 case "2":
-                    System.out.println("show player list");
                     showPlayers();
                     break;
 
                 case "3":
-                    if(currentPlayer != null){
+                    if (currentPlayer != null) {
                         currentPlayer.showInfo();
                     }
                     break;
 
                 case "4":
-                    if(currentPlayer != null){
+                    if (currentPlayer != null) {
                         currentPlayer.addMoneyToAccount();
                     }
                     break;
 
                 case "5":
-                    if(currentPlayer != null){
+                    if (currentPlayer != null) {
                         currentPlayer.play(currentMachine);
                     }
                     break;
@@ -126,7 +125,6 @@ public class Casino {
 
             }
             showMenu();
-
         }
     }
 
