@@ -19,9 +19,8 @@ public class Casino {
 
     public void sayWelcome(){
         System.out.println("Welcome to the casino!\n"
-                + "Please sign in or create an account.\n");
-        printMenu();
-
+                + "Please, press the key corresponding to your choice\n");
+        startMenu();
     }
 
     public void showMenu(){
