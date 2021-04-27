@@ -78,15 +78,16 @@ public class Casino {
             System.out.println("Please answer the questions to enter the casino");
         }
     }
-    public void showMenu(){
-        System.out.println(message);
+
+    private void showPlayers(){
+        System.out.println("=============== PLAYER LIST ==============\n" +
+                "Who are you?");
+        for(int i = 0; i < players.size(); i++){
+            System.out.println((i+1) + " - " + players.get(i).showName());
+        }
     }
 
-    public void startMenu(Player player, Machine machine) {
-        
-        String userName = player.showName();
-
-        System.out.println("welcome, " + userName);
+    public void startMenu(/*Player player, Machine machine*/) {
 
         showMenu();
         while(input.hasNext()) {
