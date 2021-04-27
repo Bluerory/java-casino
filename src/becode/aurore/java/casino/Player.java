@@ -1,5 +1,6 @@
 package becode.aurore.java.casino;
 
+import java.util.Scanner;
 /**
  * This class defines all the fields and methods of the Player class.
  */
@@ -25,6 +26,14 @@ public class Player {
 
 	public void addMoney(float amount){
 		this.money += amount;
+	}
+
+	public void addMoneyToAccount(){
+		System.out.println("How much money do you want to add?");
+		Scanner input = new Scanner(System.in);
+		int amount = input.nextInt();
+		addMoney(amount);
+		showMoney();
 	}
 
 	public void play(Machine machine){

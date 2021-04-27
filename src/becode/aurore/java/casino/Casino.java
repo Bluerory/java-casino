@@ -51,7 +51,7 @@ public class Casino {
     }
     public void createPlayer(){
 
-        System.out.println("Hello, what's your name?");
+        System.out.println("What's your name?");
         String userName = input.nextLine();
 
         System.out.println("How much money did you bring to play?");
