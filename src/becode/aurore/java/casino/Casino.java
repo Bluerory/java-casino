@@ -18,10 +18,11 @@ public class Casino {
 
     private ArrayList<Player> players = new ArrayList<>();
 
-    private String currentPlayer;
+    private Player currentPlayer;
+
     private boolean goBack = false;
 
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     public void sayWelcome(){
         System.out.println("Welcome to the casino!\n"
