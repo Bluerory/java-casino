@@ -12,7 +12,7 @@ public class Casino {
     private ArrayList<Player> players = new ArrayList<>();
 
     private Player currentPlayer;
-
+    private Machine currentMachine;
     private boolean goBack = false;
 
     private Scanner input = new Scanner(System.in);
@@ -66,6 +66,7 @@ public class Casino {
             addPlayer(player);
 
             currentPlayer = player;
+            currentMachine = machine;
         } else {
             System.out.println("Please answer the questions to enter the casino");
         }
@@ -79,7 +80,7 @@ public class Casino {
         }
     }
 
-    public void startMenu(/*Player player, Machine machine*/) {
+    public void startMenu() {
 
         showMenu();
         while(input.hasNext()) {
@@ -115,7 +116,7 @@ public class Casino {
 
                 case "5":
                     if(currentPlayer != null){
-//                        currentPlayer.play(machine);
+                        currentPlayer.play(currentMachine);
                     }
                     break;
 
