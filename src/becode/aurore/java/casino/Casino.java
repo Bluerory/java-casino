@@ -51,10 +51,10 @@ public class Casino {
             System.out.println("e - Exit");
     }
 
-    public void addPlayer(Object player) {
-        playerObjects.add(player);
-        System.out.println("playerObjects size: " + playerObjects.size());
-//        System.out.printf();
+    public void addPlayer(Player player) {
+        players.add(player);
+        System.out.println("playerObjects size: " + players.size());
+        System.out.println("welcome, " + player.showName());
 
     }
     public void createPlayer(){
