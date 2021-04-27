@@ -22,6 +22,11 @@ public class Player {
 		System.out.println("You have " + this.money + "€ on your account\n");
 	}
 
+	public void showInfo() {
+		System.out.println("Your username:" + showName() +"\n" +
+				"Your money: " + getMoney() + "€\n");
+	}
+
 	public int getMoney(){return this.money;}
 
 	public void addMoney(float amount){
