@@ -12,6 +12,10 @@ public class Machine {
         this.name = name;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public int getBet() {
         Scanner betInput = new Scanner(System.in);
         System.out.println("insert money:");
