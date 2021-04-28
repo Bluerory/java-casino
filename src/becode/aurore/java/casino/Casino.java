@@ -70,9 +70,6 @@ public class Casino {
         System.out.println("How much money did you bring to play?");
         Integer userMoney = input.nextInt();
 
-        //Machine created even if condition for player creation was not fulfilled.
-        Machine machine = new Machine();
-
         if (userName != null && !userName.isEmpty() && userMoney !=
                 null) {
             Player player = new Player(userName, userMoney);
