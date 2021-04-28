@@ -33,6 +33,7 @@ public class Casino {
             System.out.println("3 - Show player info");
             System.out.println("4 - Add money");
             System.out.println("5 - Play");
+            System.out.println("6 - Change machine");
         }
 
         System.out.println("e - Exit\n");
@@ -96,6 +97,19 @@ public class Casino {
         }
     }
 
+    private void showMachines(){
+        if (machines.size() > 0) {
+            System.out.println("============== MACHINE LIST ==============\n" +
+                    "Choose a machine.");
+            for (int i = 0; i < machines.size(); i++) {
+                System.out.println((i + 1) + " - " + machines.get(i).getName());
+            }
+            currentMachine = machines.get(input.nextInt() - 1);
+        } else {
+            System.out.println("Casino under construction, please come back later! \n");
+        }
+    }
+
     public void startMenu() {
 
         initFirstMachine();
@@ -131,6 +145,12 @@ public class Casino {
                     }
                     break;
 
+                case "6":
+                    if (currentPlayer != null) {
+                        showMachines();
+                    }
+                    break;
+
                 case "e":
                     exitMenu();
                     break;
@@ -141,6 +161,7 @@ public class Casino {
 
             }
             showMenu();
+            System.out.println(currentPlayer.showName() + " plays on " + currentMachine.getName());
         }
     }
 
