@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Casino {
 
     private ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Machine> machines = new ArrayList<>();
 
     private Player currentPlayer;
     private Machine currentMachine;
@@ -37,6 +38,23 @@ public class Casino {
         System.out.println("e - Exit\n");
     }
 
+    private void addMachine(Machine machine){
+        machines.add(machine);
+        System.out.println("machines list size: " + machines.size());
+    }
+
+    private void createMachine(String machineName){
+        Machine machine = new Machine(machineName);
+        System.out.println("machine name: " + machineName);
+
+        addMachine(machine);
+        currentMachine = machine;
+    }
+
+    private void initFirstMachine(){
+        createMachine("Slots");
+    }
+
     public void addPlayer(Player player) {
         players.add(player);
         System.out.println("playerObjects size: " + players.size());
@@ -61,7 +79,7 @@ public class Casino {
             addPlayer(player);
 
             currentPlayer = player;
-            currentMachine = machine;
+
         } else {
             System.out.println("Please answer the questions to enter the casino");
         }
@@ -83,6 +101,7 @@ public class Casino {
 
     public void startMenu() {
 
+        initFirstMachine();
         showMenu();
 
         while (input.hasNext()) {

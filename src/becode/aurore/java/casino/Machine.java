@@ -6,6 +6,11 @@ import java.util.Scanner;
 
 public class Machine {
     private int[] numbers = new int[2];
+    private String name;
+
+    public Machine(String name) {
+        this.name = name;
+    }
 
     public int getBet() {
         Scanner betInput = new Scanner(System.in);
